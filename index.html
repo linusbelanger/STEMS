@@ -2,63 +2,274 @@
 <html lang="en">
     <head>
         <title>STEMS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="stylehome.css">
+        <link rel="icon" type="image/png" href="illustrations/favicon.png">
     </head>
     <body>
+        <!-- MODAL -->
+        <div id="jsmodal" class="modal">
+            <div class="modal-content">
+                <h1>STEMS</h1>
+                <br>
+                <h2>WHAT IS MUSIC PRODUCTION?</h2>
+                <p>Producing music is the process of bringing a song idea to fruition. It involves writing, composing, recording, arranging, editing, mixing, and mastering. A music producer uses a software called a DAW (Digital Audio Workstation) like Logic Pro or Pro Tools, along with a number of instruments and plugins, real and virtual, to go from a voice memos demo to a polished, distribution-ready track.</p>
+                <br>
+                <h2>AND STEMS?</h2>
+                <p>STEMS aims to help make music production just a little more accessible, providing creators with important knowledge and powerful tools at no barrier of entry.</p>
+                <br>
+                <h2>WHO MADE THIS THING?</h2>
+                <p>This site was thought up, designed, created, coded, (basically everything) by this guy named Linus Belanger who has literally never coded anything in his life. Linus is currently a Graphic Design major at OCAD University — which is why the site looks and feels so damn good. Linus is also a hobby music producer and a member of the up-and-coming experimental pop band "highspeedcrash."</p>
+                <br>
+                <h2>HOW DO I USE IT?</h2>
+                <p>STEMS operates as a web-based archive of free music production resources. The site is arranged like a DAW to help beginners become acquainted with the environment. All the recorded material exists in the large grid on the right, the plugins in the panel on the left, and mixing/mastering at the bottom. Simply click any of the sections to learn more and access the tools.</p>
+                <br>
+                <h3>HAPPY CREATING AND REMEMBER:<br> IF IT SOUNDS GOOD, IT'S RIGHT.</h3>
+                <br>
+            </div>
+        <!-- GRID -->
+        </div>
         <div class="grid">
             <div class="head">
-                <div class="home"><span><a href="index.html">STEMS</a></span></div>
+                <div class="home dfHover"><span><a href="index.html" title="This will take you home, but you're already here">STEMS</a></span></div>
+                <div class="links">
+                    <span><a id="jsabout" class="about dfHover" title="It's pretty simple really">WHAT IS STEMS?</a></span>
+                    <span><div id="mute" title="Too much sound for you?">MUTE</div></span>
+                </div>
             </div>
-            <div class="plugins"></div>
+            <!-- PLUGINS -->
+            <div class="plugins-panel">
+                <div class="plugins-list">
+                    <a class="eq dfHover" href="eq.html" title="Photoshop Levels and Curves but for sound">EQ</a>
+                    <a class="compressor dfHover" href="compressor.html" title="Compressor? I hardly know her">COMP&shy;<wbr>RESSOR</a>
+                    <a class="reverb dfHover" href="reverb.html" title="I think we need some space">REVERB</a>
+                    <a class="delay dfHover" href="delay.html" title="Echo ᴱᶜʰᵒ  ᴱᶜʰᵒ">DELAY</a>
+                </div>
+                <div class="meters1">
+                    <div class="m1"></div>
+                    <div class="m2 dfHover" title="Visual volume slider (I'm not experienced enough to make this do anything)"></div>
+                </div>
+                <div class="meters2">
+                    <div class="m3"></div>
+                    <div class="m4 dfHover" title="Visual volume slider (I'm not experienced enough to make this do anything)"></div>
+                </div>
+            </div>
+            <!-- TRACKS -->
             <div class="tracks">
-                <div class="VOC"><a href="vocals.html">VOCALS</a></div>
-                <div class="INS"><a href="instruments.html">INSTRUMENTS</a></div>
-                <div class="PER">PERCUSSION</div>
-                <div class="BAS">BASS</div>
-                <div class="MAS">MASTER</div>
+                <div class="VOC"><span class="VOCtext vcHover"><a href="vocals.html" title="All the voice bits">VOCALS</a></span></div>
+                <div class="INS"><span class="INStext inHover"><a href="instruments.html" title="Basically everything melodic">INSTRU&shy;<wbr>MENTS</a></span></div>
+                <div class="PER"><span class="PERtext pcHover"><a href="percussion.html" title="You know, drums and stuff">PERCUS&shy;<wbr>SION</a></span></div>
+                <div class="BAS"><span class="BAStext bsHover"><a href="bass.html" title="Subwoofer things">BASS</a></span></div>
+                <div class="MAS"><span class="MAStext dfHover"><a href="master.html" title="Nerdy audio engineering">MIX & MASTER</a></span></div>
             </div>
+            <!-- REGIONS -->
             <div class="regions">
                 <div class="r1"></div>
                 <div class="r2"></div>
-                <div class="r3"></div>
-                <div class="r4"></div>
-                <div class="r5"></div>
-                <div class="r6"></div>
-                <div class="r7"></div>
-                <div class="r8"></div>
-                <div class="r9"></div>
-                <div class="r10"></div>
-                <div class="r11"></div>
-                <div class="r12"></div>
+                <a href="vocals.html" class="r3 vcHover">
+                    <img class="vocals-image" src="illustrations/vocals.png">
+                </a>
+                <a href="vocals.html" class="r4 vcHover">
+                    <img class="vocals-image" src="illustrations/vocals.png">
+                </a>
+                <a href="vocals.html" class="r5 vcHover">
+                    <img class="vocals-image" src="illustrations/vocals.png">
+                </a>
+                <a href="vocals.html" class="r6 vcHover">
+                    <img class="vocals-image" src="illustrations/vocals.png">
+                </a>
+                <a href="vocals.html" class="r7 vcHover">
+                    <img class="vocals-image" src="illustrations/vocals.png">
+                </a>
+                <a href="vocals.html" class="r8 vcHover">
+                    <img class="vocals-image" src="illustrations/vocals.png">
+                </a>
+                <a href="instruments.html" class="r9 inHover">
+                    <img class="instruments-image" src="illustrations/instruments.png">
+                </a>
+                <a href="instruments.html" class="r10 inHover">
+                    <img class="instruments-image" src="illustrations/instruments.png">
+                </a>
+                <a href="instruments.html" class="r11 inHover">
+                    <img class="instruments-image" src="illustrations/instruments.png">
+                </a>
+                <a href="instruments.html" class="r12 inHover">
+                    <img class="instruments-image" src="illustrations/instruments.png">
+                </a>
                 <div class="r13"></div>
-                <div class="r14"></div>
-                <div class="r15"></div>
-                <div class="r16"></div>
+                <a href="instruments.html" class="r14 inHover">
+                    <img class="instruments-image" src="illustrations/instruments.png">
+                </a>
+                <a href="instruments.html" class="r15 inHover">
+                    <img class="instruments-image" src="illustrations/instruments.png">
+                </a>
+                <a href="instruments.html" class="r16 inHover">
+                    <img class="instruments-image" src="illustrations/instruments.png">
+                </a>
                 <div class="r17"></div>
                 <div class="r18"></div>
-                <div class="r19"></div>
-                <div class="r20"></div>
-                <div class="r21"></div>
-                <div class="r22"></div>
+                <a href="percussion.html" class="r19 pcHover">
+                    <img class="percussion-image" src="illustrations/percussion.png">
+                </a>
+                <a href="percussion.html" class="r20 pcHover">
+                    <img class="percussion-image" src="illustrations/percussion.png">
+                </a>
+                <a href="percussion.html" class="r21 pcHover">
+                    <img class="percussion-image" src="illustrations/percussion.png">
+                </a>
+                <a href="percussion.html" class="r22 pcHover">
+                    <img class="percussion-image" src="illustrations/percussion.png">
+                </a>
                 <div class="r23"></div>
                 <div class="r24"></div>
                 <div class="r25"></div>
-                <div class="r26"></div>
+                <a href="bass.html" class="r26 bsHover">
+                    <img class="bass-image" src="illustrations/bass.png">
+                </a>
                 <div class="r27"></div>
-                <div class="r28"></div>
-                <div class="r29"></div>
+                <a href="bass.html" class="r28 bsHover">
+                    <img class="bass-image" src="illustrations/bass.png">
+                </a>
+                <a href="bass.html" class="r29 bsHover">
+                    <img class="bass-image" src="illustrations/bass.png">
+                </a>
                 <div class="r30"></div>
                 <div class="r31"></div>
-                <div class="r32"></div>
-                <div class="r33"></div>
-                <div class="r34"></div>
-                <div class="r35"></div>
-                <div class="r36"></div>
-                <div class="r37"></div>
-                <div class="r38"></div>
-                <div class="r39"></div>
-                <div class="r40"></div>
+                <a href="bass.html" class="r32 bsHover">
+                    <img class="bass-image" src="illustrations/bass.png">
+                </a>
+                <a href="master.html" class="r33 dfHover">
+                    <img class="master-image" src="illustrations/master.png">
+                </a>
+                <a href="master.html" class="r34 dfHover">
+                    <img class="master-image" src="illustrations/master.png">
+                </a>
+                <a href="master.html" class="r35 dfHover">
+                    <img class="master-image" src="illustrations/master.png">
+                </a>
+                <a href="master.html" class="r36 dfHover">
+                    <img class="master-image" src="illustrations/master.png">
+                </a>
+                <a href="master.html" class="r37 dfHover">
+                    <img class="master-image" src="illustrations/master.png">
+                </a>
+                <a href="master.html" class="r38 dfHover">
+                    <img class="master-image" src="illustrations/master.png">
+                </a>
+                <a href="master.html" class="r39 dfHover">
+                    <img class="master-image" src="illustrations/master.png">
+                </a>
+                <a href="master.html" class="r40 dfHover">
+                    <img class="master-image" src="illustrations/master.png">
+                </a>
             </div>
         </div>
+        <!-- AUDIO -->
+        <audio id="defaultSound" preload="auto">
+            <source src="sfx/default.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="vocalsSound" preload="auto">
+            <source src="sfx/vocals.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="instrumentsSound" preload="auto">
+            <source src="sfx/instruments.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="percussionSound" preload="auto">
+            <source src="sfx/percussion.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="bassSound" preload="auto">
+            <source src="sfx/bass.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <!-- JAVASCRIPT -->
+        <script>
+            var modal = document.getElementById("jsmodal");
+            var btn = document.getElementById("jsabout");
+            btn.onclick = function() {
+            modal.style.display = "block";
+            }
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            }
+        </script>
+        <script>
+            const triggerElements1 = document.querySelectorAll('.dfHover');
+            const defaultSound = document.getElementById('defaultSound');
+
+            triggerElements1.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    defaultSound.pause();
+                    defaultSound.currentTime = 0;
+                    defaultSound.play();
+                });
+            });
+        </script>
+        <script>
+            const triggerElements2 = document.querySelectorAll('.vcHover');
+            const vocalsSound = document.getElementById('vocalsSound');
+
+            triggerElements2.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    vocalsSound.pause();
+                    vocalsSound.currentTime = 0;
+                    vocalsSound.play();
+                });
+            });
+        </script>
+        <script>
+            const triggerElements3 = document.querySelectorAll('.inHover');
+            const instrumentsSound = document.getElementById('instrumentsSound');
+
+            triggerElements3.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    instrumentsSound.pause();
+                    instrumentsSound.currentTime = 0;
+                    instrumentsSound.play();
+                });
+            });
+        </script>
+        <script>
+            const triggerElements4 = document.querySelectorAll('.pcHover');
+            const percussionSound = document.getElementById('percussionSound');
+
+            triggerElements4.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    percussionSound.pause();
+                    percussionSound.currentTime = 0;
+                    percussionSound.play();
+                });
+            });
+        </script>
+        <script>
+            const triggerElements5 = document.querySelectorAll('.bsHover');
+            const bassSound = document.getElementById('bassSound');
+
+            triggerElements5.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    bassSound.pause();
+                    bassSound.currentTime = 0;
+                    bassSound.play();
+                });
+            });
+        </script>
+        <script>
+            const mute = document.getElementById('mute');
+            let isMuted = false;
+
+            mute.addEventListener('click', () => {
+                isMuted = !isMuted;
+
+                document.querySelectorAll('audio').forEach(audio => {
+                    audio.muted = isMuted;
+                });
+                mute.textContent = isMuted ? "UNMUTE" : "MUTE";
+            });
+        </script>
     </body>
 </html>

@@ -1,10 +1,19 @@
+/* GLOBAL */
+
+html {
+    font-family: "Mono Regular";
+    font-size: 12pt;
+    line-height: 14pt;
+}
 body {
     background-color: whitesmoke;
     color: whitesmoke;
-    font-family: "Mono Regular";
     margin: 1px;
     overflow: hidden;
 }
+
+/* FONTS */
+
 @font-face {
   font-family: 'Mono Medium';
   src: url('FormaDJRMono-Medium-Testing.otf') format('opentype');
@@ -15,6 +24,90 @@ body {
   src: url('FormaDJRMono-Regular-Testing.otf') format('opentype');
   font-style: normal;
 }
+@font-face {
+  font-family: 'Sans Text';
+  src: url('FormaDJRText-Regular-Testing.otf') format('opentype');
+  font-style: normal;
+  font-feature-settings: "ss03";
+}
+
+/* ANIMATIONS */
+
+@-webkit-keyframes animateslide {
+  from {transform: translateY(100%)}
+  to {transform: translateY(0%)}
+}
+@keyframes animateslide {
+  from {transform: translateY(100%)}
+  to {transform: translateY(0%)}
+}
+@-webkit-keyframes animatefade {
+  from {opacity:0}
+  to {opacity:1}
+}
+@keyframes animatefade {
+  from {opacity:0}
+  to {opacity:1}
+}
+
+/* MODAL */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #0303033c;
+  backdrop-filter: blur(5px);
+}
+.modal-content {
+  background-color: whitesmoke;
+  color: #030303;
+  font-family: "Sans Text";
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  letter-spacing: 0.2pt;
+  margin: 10% auto;
+  padding: 20px;
+  padding-right: 40px;
+  width: 60%;
+  user-select: none;
+  -webkit-animation-name: animatefade, animateslide;
+  -webkit-animation-duration: 0.2s;
+  animation-name: animatefade, animateslide;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+}
+
+/* TEXT */
+
+h1 {
+    font-family: "Mono Medium";
+    font-size: 4.4rem;
+    line-height: 1.2rem;
+    letter-spacing: -2px;
+}
+h2 {
+    font-family: "Mono Medium";
+    font-size: 1.5rem;
+}
+h3 {
+    font-family: "Mono Medium";
+    font-size: 1.2rem;
+}
+p {
+    font-size: 15pt;
+    line-height: 17pt;
+    letter-spacing: 0.03em;
+    margin-left: 40px;
+}
+
+/* CONTENT */
+
 .grid {
     display: grid;
     background-color:#030303;
@@ -28,27 +121,167 @@ body {
 a:link, a:visited, a:hover, a:active {
   text-decoration: none;
   color: inherit;
+  transition: color 0.2s ease;
 }
+
+/* HEADER */
+
 .head {
     border: 1px solid whitesmoke;
     height: 80px;
     color: whitesmoke;
     grid-column: 1 / 10;
-    font-family: 'Mono Medium';
-    font-size: 53pt;
-    letter-spacing: -2px;
     padding-left: 10px;
-    align-content: center;
+    align-items: center;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+}
+.home {
+    font-family: 'Mono Medium';
+    font-size: 4.37rem;
+    letter-spacing: -2px;
+    padding-top: 6px;
 }
 .home span:hover {
     color:#e8aa01;
     user-select: none;
 }
-.plugins {
+.about {
+    align-content: center;
+    margin-right: 35px;
+    cursor: help;
+}
+.about:hover {
+    font-family: "Mono Medium";
+    color:#91DCAB;
+}
+.links {
+    display: flex;
+    justify-content: space-between;
+}
+#mute {
+    cursor: not-allowed;
+    align-content: center;
+    margin-right: 35px;
+}
+#mute:hover {
+    font-family: "Mono Medium";
+    color: #E00000;
+}
+
+/* PLUGINS */
+
+.plugins-panel {
+    display: grid;
+    grid-template-rows: repeat(2 1fr);
+    grid-template-columns: repeat(2 1fr);
     border: 1px solid whitesmoke;
     height: 1fr;
-    grid-row: 2 / 13
 }
+.plugins-list {
+    grid-area: 1 / 1 / 2 / 3;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    border: 2px solid whitesmoke;
+    margin: 2vw;
+    user-select: none;
+}
+    .eq {
+        border: 1px solid whitesmoke;
+        align-content: center;
+        padding: 10px;
+        cursor: zoom-in;
+        background-color: inherit;
+    }
+    .eq:hover {
+        background-color: #E00000;
+        transition: background-color 0.2s ease;
+    }
+    .compressor {
+        border: 1px solid whitesmoke;
+        align-content: center;
+        padding: 10px;
+        padding: 10px;
+        cursor: zoom-in;
+        background-color: inherit;
+    }
+    .compressor:hover {
+        background-color: #e8aa01;
+        transition: background-color 0.2s ease;
+    }
+    .reverb {
+        border: 1px solid whitesmoke;
+        align-content: center;
+        padding: 10px;
+        cursor: zoom-in;
+        background-color: inherit;
+    }
+    .reverb:hover {
+        background-color: #222A80;
+        transition: background-color 0.2s ease;
+    }
+    .delay {
+        border: 1px solid whitesmoke;
+        align-content: center;
+        padding: 10px;
+        cursor: zoom-in;
+        background-color: inherit;
+    }
+    .delay:hover {
+        background-color: #91DCAB;
+        transition: background-color 0.2s ease;
+    }
+.meters1 {
+    grid-area: 2 / 1 / 4 / 2;
+    display: grid;
+    border: 2px solid whitesmoke;
+    margin: 2vw;
+    margin-top: 0;
+    user-select: none;
+}
+    .m1 {
+        grid-row: 1 / 2;
+        border: 1px solid whitesmoke;
+        padding: 10px;
+    }
+    .m2 {
+        grid-row: 2 / 8;
+        border: 1px solid whitesmoke;
+        padding: 10px;
+    }
+    .m2:hover {
+        background-color: #E00000;
+        transition: background-color 0.2s ease;
+        cursor: row-resize;
+    }
+.meters2 {
+    grid-area: 2 / 2 / 4 / 2;
+    display: grid;
+    border: 2px solid whitesmoke;
+    margin: 2vw;
+    margin-left: 0;
+    margin-top: 0;
+    user-select: none;
+}
+    .m3 {
+        grid-row: 1 / 2;
+        border: 1px solid whitesmoke;
+        padding: 10px;
+    }
+    .m4 {
+        grid-row: 2 / 4;
+        border: 1px solid whitesmoke;
+        padding: 10px;
+    }
+    .m4:hover {
+        background-color: #e8aa01;
+        transition: background-color 0.2s ease;
+        cursor: row-resize;
+    }
+
+/* TRACKS */
+
 .tracks {
     border: 1px solid whitesmoke;
     height: 1fr;
@@ -64,30 +297,56 @@ a:link, a:visited, a:hover, a:active {
         align-content: center;
         padding-left: 10px;
     }
+    .VOCtext:hover {
+        font-family: "Mono Medium";
+        color: #E00000;
+    }
     .INS {
         border: 1px solid whitesmoke;
         align-content: center;
         padding-left: 10px;
+        padding-right: 10px;
+    }
+    .INStext:hover {
+        font-family: "Mono Medium";
+        color: #e8aa01;
     }
     .PER {
         border: 1px solid whitesmoke;
         align-content: center;
         padding-left: 10px;
+        padding-right: 10px;
+    }
+    .PERtext:hover {
+        font-family: "Mono Medium";
+        color: #222A80;
     }
     .BAS {
         border: 1px solid whitesmoke;
         align-content: center;
         padding-left: 10px;
     }
+    .BAStext:hover {
+        font-family: "Mono Medium";
+        color: #91DCAB;
+    }
     .MAS {
         border: 1px solid whitesmoke;
         align-content: center;
         padding-left: 10px;
+        padding-right: 10px;
     }
+    .MAStext:hover {
+        font-family: "Mono Medium";
+        color: #cbcbcb;
+    }
+
+/* REGIONS */
+
 .regions {
     border: 1px solid whitesmoke;
     height: 1fr;
-    grid-area: 2 / 3 / 13 / 7
+    grid-area: 2 / 3 / 13 / 7;
 }
 .regions {
     display: grid;
@@ -96,150 +355,275 @@ a:link, a:visited, a:hover, a:active {
 }
     .r1 {
         border: 1px solid grey;
+        overflow: hidden;
     }
     .r2 {
         border: 1px solid grey;
+        overflow: hidden;
     }
     .r3 {
         border: 1px solid grey;
         background-color: #E00000;
+        overflow: hidden;
     }
     .r4 {
         border: 1px solid grey;
         background-color: #E00000;
+        overflow: hidden;
     }
     .r5 {
         border: 1px solid grey;
         background-color: #E00000;
+        overflow: hidden;
     }
     .r6 {
         border: 1px solid grey;
         background-color: #E00000;
+        overflow: hidden;
     }
     .r7 {
         border: 1px solid grey;
         background-color: #E00000;
+        overflow: hidden;
     }
     .r8 {
         border: 1px solid grey;
         background-color: #E00000;
+        overflow: hidden;
     }
     .r9 {
         border: 1px solid grey;
         background-color: #e8aa01;
+        overflow: hidden;
     }
     .r10 {
         border: 1px solid grey;
         background-color: #e8aa01;
+        overflow: hidden;
     }
     .r11 {
         border: 1px solid grey;
         background-color: #e8aa01;
+        overflow: hidden;
     }
     .r12 {
         border: 1px solid grey;
         background-color: #e8aa01;
+        overflow: hidden;
     }
     .r13 {
         border: 1px solid grey;
+        overflow: hidden;
     }
     .r14 {
         border: 1px solid grey;
         background-color: #e8aa01;
+        overflow: hidden;
     }
     .r15 {
         border: 1px solid grey;
         background-color: #e8aa01;
+        overflow: hidden;
     }
     .r16 {
         border: 1px solid grey;
         background-color: #e8aa01;
+        overflow: hidden;
     }
     .r17 {
         border: 1px solid grey;
+        overflow: hidden;
     }
     .r18 {
         border: 1px solid grey;
+        overflow: hidden;
     }
     .r19 {
         border: 1px solid grey;
         background-color: #222A80;
+        overflow: hidden;
     }
     .r20 {
         border: 1px solid grey;
         background-color: #222A80;
+        overflow: hidden;
     }
     .r21 {
         border: 1px solid grey;
         background-color: #222A80;
+        overflow: hidden;
     }
     .r22 {
         border: 1px solid grey;
         background-color: #222A80;
+        overflow: hidden;
     }
     .r23 {
         border: 1px solid grey;
+        overflow: hidden;
     }
     .r24 {
         border: 1px solid grey;
+        overflow: hidden;
     }
     .r25 {
         border: 1px solid grey;
+        overflow: hidden;
     }
     .r26 {
         border: 1px solid grey;
         background-color: #91DCAB;
+        overflow: hidden;
     }
     .r27 {
         border: 1px solid grey;
+        overflow: hidden;
     }
     .r28 {
         border: 1px solid grey;
         background-color: #91DCAB;
+        overflow: hidden;
     }
     .r29 {
         border: 1px solid grey;
         background-color: #91DCAB;
+        overflow: hidden;
     }
     .r30 {
         border: 1px solid grey;
+        overflow: hidden;
     }
     .r31 {
         border: 1px solid grey;
+        overflow: hidden;
     }
     .r32 {
         border: 1px solid grey;
         background-color: #91DCAB;
+        overflow: hidden;
     }
     .r33 {
         border: 1px solid grey;
-        background-color: whitesmoke;
+        background-color: #cbcbcb;
+        overflow: hidden;
     }
     .r34 {
         border: 1px solid grey;
-        background-color: whitesmoke;
+        background-color: #cbcbcb;
+        overflow: hidden;
     }
     .r35 {
         border: 1px solid grey;
-        background-color: whitesmoke;
+        background-color: #cbcbcb;
+        overflow: hidden;
     }
     .r36 {
         border: 1px solid grey;
-        background-color: whitesmoke;
+        background-color: #cbcbcb;
+        overflow: hidden;
     }
     .r37 {
         border: 1px solid grey;
-        background-color: whitesmoke;
+        background-color: #cbcbcb;
+        overflow: hidden;
     }
     .r38 {
         border: 1px solid grey;
-        background-color: whitesmoke;
+        background-color: #cbcbcb;
+        overflow: hidden;
     }
     .r39 {
         border: 1px solid grey;
-        background-color: whitesmoke;
+        background-color: #cbcbcb;
+        overflow: hidden;
     }
     .r40 {
         border: 1px solid grey;
-        background-color: whitesmoke;
+        background-color: #cbcbcb;
+        overflow: hidden;
     }
+.instruments-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    cursor:zoom-in;
+}
+.regions:hover .instruments-image:hover {
+    opacity: 1;
+}
+.vocals-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    cursor:zoom-in;
+}
+.regions:hover .vocals-image:hover {
+    opacity: 1;
+}
+.percussion-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    cursor:zoom-in;
+}
+.regions:hover .percussion-image:hover {
+    opacity: 1;
+}
+.bass-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    cursor:zoom-in;
+}
+.regions:hover .bass-image:hover {
+    opacity: 1;
+}
+.master-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    cursor:zoom-in;
+}
+.regions:hover .master-image:hover {
+    opacity: 1;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 800px) {
+    .r1, .r2, .r3, .r5, .r6, .r7, .r8, .r9, .r10, .r11, .r13, .r14, .r15, .r16, .r17, .r18, .r19, .r21, .r22, .r23, .r24, .r25, .r26, .r27, .r29, .r30, .r31, .r32, .r33, .r34, .r35, .r37, .r38, .r39, .r40 {
+        display: none;
+    }
+    .about {
+        margin-right: 4vw;
+    }
+    .plugins-panel {
+        grid-area: 2 / 1 / 13 / 3;
+    }
+    .tracks {
+        grid-area: 2 / 3 / 13 / 5
+    }
+    .regions {
+        grid-area: 2 / 5 / 13 / 7;
+        grid-template-columns: 1fr;
+    }
+    .vocals-image, .instruments-image, .percussion-image, .bass-image, .master-image {
+        opacity: 1;
+    }
+    .home {
+        padding-right: 20px;
+    }
+    #mute {
+        display: none;
+    }
+}
