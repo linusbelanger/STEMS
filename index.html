@@ -7,24 +7,35 @@
         <link rel="icon" type="image/png" href="illustrations/favicon.png">
     </head>
     <body>
+        <!-- START -->
+        <dialog id="startModal">
+            <div class="start-content">
+                <h1>STEMS</h1>
+                <p>Welcome to STEMS: The library of free music production tools for all creators, regardless of experience.</p>
+                <p>Click a track region or a plugin input to learn more about that element and access the tools.</p>
+                <button id="start-close">LET ME IN</button>
+            </div>
+        </dialog>
         <!-- MODAL -->
         <div id="jsmodal" class="modal">
             <div class="modal-content">
-                <h1>STEMS</h1>
-                <br>
-                <h2>WHAT IS MUSIC PRODUCTION?</h2>
-                <p>Producing music is the process of bringing a song idea to fruition. It involves writing, composing, recording, arranging, editing, mixing, and mastering. A music producer uses a software called a DAW (Digital Audio Workstation) like Logic Pro or Pro Tools, along with a number of instruments and plugins, real and virtual, to go from a voice memos demo to a polished, distribution-ready track.</p>
+                <div class="modal-header">
+                    <h1>STEMS</h1>
+                    <div class="close dfHover"><span><a href="index.html" title="Leaving so soon?">&times</a></span></div>
+                </div>
+                <h2 id="abouttext">WHAT IS MUSIC PRODUCTION?</h2>
+                <p class="modal-text">Producing music is the process of bringing a song idea to fruition. It involves writing, composing, recording, arranging, editing, mixing, and mastering. A music producer uses a software called a DAW (Digital Audio Workstation) like Logic Pro or Pro Tools, along with a number of instruments and plugins, real and virtual, to go from a voice memos demo to a polished, distribution-ready track.</p>
                 <br>
                 <h2>AND STEMS?</h2>
-                <p>STEMS aims to help make music production just a little more accessible, providing creators with important knowledge and powerful tools at no barrier of entry.</p>
-                <br>
-                <h2>WHO MADE THIS THING?</h2>
-                <p>This site was thought up, designed, created, coded, (basically everything) by this guy named Linus Belanger who has literally never coded anything in his life. Linus is currently a Graphic Design major at OCAD University — which is why the site looks and feels so damn good. Linus is also a hobby music producer and a member of the up-and-coming experimental pop band "highspeedcrash."</p>
+                <p class="modal-text">STEMS aims to help make music production just a little more accessible, providing creators with important knowledge and powerful tools at no barrier of entry.</p>
                 <br>
                 <h2>HOW DO I USE IT?</h2>
-                <p>STEMS operates as a web-based archive of free music production resources. The site is arranged like a DAW to help beginners become acquainted with the environment. All the recorded material exists in the large grid on the right, the plugins in the panel on the left, and mixing/mastering at the bottom. Simply click any of the sections to learn more and access the tools.</p>
+                <p class="modal-text">STEMS operates as a web-based archive of free music production resources. The site is arranged like a DAW to help beginners become acquainted with the environment. All the recorded material exists in the large grid on the right, the plugins in the panel on the left, and mixing/mastering at the bottom. Simply click any of the sections to learn more and access the tools.</p>
                 <br>
-                <h3>HAPPY CREATING AND REMEMBER:<br> IF IT SOUNDS GOOD, IT'S RIGHT.</h3>
+                <h2>WHO MADE THIS THING?</h2>
+                <p class="modal-text">This site was thought up, designed, created, coded, (basically everything) by Linus Belanger who has never coded anything in his life. Linus is a self-proclaimed artist and currently a Graphic Design major at OCAD University. Linus is also a hobby music producer and a member of the up-and-coming experimental pop band "<a href="https://open.spotify.com/artist/7tq3DaaPKjemcHZ0dE0M6p?si=uolwnZXOSfCgDctVbKm30w" id="hsc"><u>highspeedcrash.</u></a>"</p>
+                <br>
+                <h3 id="message">HAPPY CREATING AND REMEMBER:<br> IF IT SOUNDS GOOD, IT'S RIGHT.</h3>
                 <br>
             </div>
         <!-- GRID -->
@@ -45,13 +56,13 @@
                     <a class="reverb dfHover" href="reverb.html" title="I think we need some space">REVERB</a>
                     <a class="delay dfHover" href="delay.html" title="Echo ᴱᶜʰᵒ  ᴱᶜʰᵒ">DELAY</a>
                 </div>
-                <div class="meters1">
+                <div class="meters1" title="Visual volume slider (I'm not experienced enough to make this do anything)">
                     <div class="m1"></div>
-                    <div class="m2 dfHover" title="Visual volume slider (I'm not experienced enough to make this do anything)"></div>
+                    <div class="m2"></div>
                 </div>
-                <div class="meters2">
+                <div class="meters2" title="Visual volume slider (I'm not experienced enough to make this do anything)">
                     <div class="m3"></div>
-                    <div class="m4 dfHover" title="Visual volume slider (I'm not experienced enough to make this do anything)"></div>
+                    <div class="m4"></div>
                 </div>
             </div>
             <!-- TRACKS -->
@@ -186,6 +197,20 @@
             Your browser does not support the audio element.
         </audio>
         <!-- JAVASCRIPT -->
+         <!-- JS MODAL -->
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                const modal = document.getElementById('startModal');
+                const closeBtn = document.getElementById('start-close');
+                const isReload = performance.getEntriesByType("navigation")[0].type === 'reload';
+                const isInitialEntry = !sessionStorage.getItem('navigated');
+                if (isInitialEntry || isReload) {
+                    modal.showModal();
+                }
+                sessionStorage.setItem('navigated', 'true');
+                closeBtn.addEventListener('click', () => modal.close());
+            });
+        </script>
         <script>
             var modal = document.getElementById("jsmodal");
             var btn = document.getElementById("jsabout");
@@ -198,6 +223,7 @@
             }
             }
         </script>
+        <!-- JS SOUNDS -->
         <script>
             const triggerElements1 = document.querySelectorAll('.dfHover');
             const defaultSound = document.getElementById('defaultSound');
@@ -259,16 +285,41 @@
             });
         </script>
         <script>
+            // 1. Check if the device has a touch screen
+            const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+
+            // 2. Variable to track sound state
+            let soundEnabled = isTouchDevice ? false : true;
+
+            // 3. Function to play sound
+            function playSound(soundEffect) {
+                if (soundEnabled) {
+                    soundEffect.play();
+                } else {
+                    console.log("Sound muted on touch device");
+                }
+            }
+        </script>
+        <!-- JS MUTE -->
+        <script>
             const mute = document.getElementById('mute');
-            let isMuted = false;
+            
+            let isMuted = localStorage.getItem('isMuted') === 'true';
 
-            mute.addEventListener('click', () => {
-                isMuted = !isMuted;
-
+            const updateMuteState = () => {
                 document.querySelectorAll('audio').forEach(audio => {
                     audio.muted = isMuted;
                 });
                 mute.textContent = isMuted ? "UNMUTE" : "MUTE";
+            };
+
+            updateMuteState();
+
+            mute.addEventListener('click', () => {
+                isMuted = !isMuted;
+                
+                localStorage.setItem('isMuted', isMuted);
+                updateMuteState();
             });
         </script>
     </body>
