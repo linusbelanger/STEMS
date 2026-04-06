@@ -218,15 +218,17 @@
             modal.style.display = "block";
             }
             window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.classList.add('closing');
+                if (event.target == modal) {
+                    modal.classList.add('closing');
+                }
+            };
 
-                setTimeout(() => {
+            modal.addEventListener('animationend', (e) => {
+                if (modal.classList.contains('closing')) {
                     modal.style.display = "none";
                     modal.classList.remove('closing');
-                }, 300);
-            }
-            }
+                }
+            });
         </script>
         <script>
             const closeBtn = document.getElementById("closeModal");
@@ -438,7 +440,7 @@
                 });
             });
 
-            // MASTER (dfHover already exists, reuse carefully)
+            // MASTER
             document.querySelectorAll('.r33, .r34, .r35, .r36, .r37, .r38, .r39, .r40').forEach(el => {
                 el.addEventListener('mouseenter', () => {
                     body.classList.add('show-master');
